@@ -9,4 +9,6 @@ import moblab.bme.sipka.bence.mobillabor2017f1.model.RecipeHeader;
 
 public interface RecipeScreen {
     public void showRecipe(Recipe recipe);
+
+    public void setFavorite(boolean favorite);
 }

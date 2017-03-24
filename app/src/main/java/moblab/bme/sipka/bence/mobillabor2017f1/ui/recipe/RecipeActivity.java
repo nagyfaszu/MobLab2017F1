@@ -45,4 +45,9 @@ public class RecipeActivity extends AppCompatActivity implements RecipeScreen {
     public void showRecipe(Recipe recipe) {
         //TODO
     }
+
+    @Override
+    public void setFavorite(boolean favorite) {
+        //TODO
+    }
 }

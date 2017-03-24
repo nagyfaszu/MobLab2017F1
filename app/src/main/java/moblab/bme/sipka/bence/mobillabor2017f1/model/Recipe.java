@@ -16,7 +16,7 @@ public class Recipe extends RecipeHeader {
     public Collection<String> ingredients;
     public String directions;
     public String video;
-
+    public boolean favorite;
 
     public Recipe(JSONObject json) throws JSONException{
         super(json);
@@ -30,5 +30,6 @@ public class Recipe extends RecipeHeader {
         }
         this.directions = json.getString("Directions");
         this.video = json.getString("Video");
+        this.favorite = json.optBoolean("Favorite");
     }
 }

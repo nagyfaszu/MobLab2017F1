@@ -12,4 +12,7 @@ public class RecipePresenter extends Presenter<RecipeScreen> {
     public void showRecipe(Recipe recipe){
         screen.showRecipe(recipe);
     }
+    public void setFavorite(boolean favorite){
+        screen.setFavorite(favorite);
+    }
 }
