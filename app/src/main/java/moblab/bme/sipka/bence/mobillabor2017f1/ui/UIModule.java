@@ -8,6 +8,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import moblab.bme.sipka.bence.mobillabor2017f1.ui.main.MainPresenter;
+import moblab.bme.sipka.bence.mobillabor2017f1.ui.recipe.RecipePresenter;
 
 @Module
 public class UIModule {
@@ -26,6 +27,11 @@ public class UIModule {
     @Singleton
     public MainPresenter provideMainPresenter() {
         return new MainPresenter();
+    }
+
+    @Provides
+    public RecipePresenter provideRecipePresenter(){
+        return new RecipePresenter();
     }
 
 }

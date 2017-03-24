@@ -1,8 +1,11 @@
 package moblab.bme.sipka.bence.mobillabor2017f1.ui.main;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -10,11 +13,14 @@ import moblab.bme.sipka.bence.mobillabor2017f1.DaggerMobSoftApplicationComponent
 import moblab.bme.sipka.bence.mobillabor2017f1.MobSoftApplication;
 import moblab.bme.sipka.bence.mobillabor2017f1.MobSoftApplicationComponent;
 import moblab.bme.sipka.bence.mobillabor2017f1.R;
+import moblab.bme.sipka.bence.mobillabor2017f1.model.RecipeGroup;
+import moblab.bme.sipka.bence.mobillabor2017f1.model.RecipeHeader;
+import moblab.bme.sipka.bence.mobillabor2017f1.ui.recipe.RecipeActivity;
 
 public class MainActivity extends AppCompatActivity implements MainScreen {
 
     @Inject
-    MainPresenter mainPresenter;
+    MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,17 +33,25 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
     @Override
     protected void onStart() {
         super.onStart();
-        mainPresenter.attachScreen(this);
+        presenter.attachScreen(this);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        mainPresenter   .detachScreen();
+        presenter.detachScreen();
+    }
+
+
+    @Override
+    public void showRecipeGroups(List<RecipeGroup> groups) {
+        //TODO
     }
 
     @Override
-    public void showMessage(String text) {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+    public void showRecipe(RecipeHeader recipe) {
+        Intent intent = new Intent(this, RecipeActivity.class);
+        intent.putExtra(RecipeActivity.EXTRA_RECIPE_ID, recipe.id);
+        startActivity(intent);
     }
 }
