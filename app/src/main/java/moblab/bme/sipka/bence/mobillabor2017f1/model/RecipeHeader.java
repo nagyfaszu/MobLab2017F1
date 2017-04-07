@@ -8,15 +8,43 @@ import org.json.JSONObject;
  */
 
 public class RecipeHeader {
-    public int id;
+    public Long id;
     public String title;
     public String backgroundImage;
     public String tileImage;
 
-    public RecipeHeader(JSONObject json) throws JSONException {
-        id = json.getInt("Id");
-        title = json.getString("Title");
-        backgroundImage = json.getString("BackgroundImage");
-        tileImage = json.getString("TileImage");
+    public RecipeHeader() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getBackgroundImage() {
+        return backgroundImage;
+    }
+
+    public void setBackgroundImage(String backgroundImage) {
+        this.backgroundImage = backgroundImage;
+    }
+
+    public String getTileImage() {
+        return tileImage;
+    }
+
+    public void setTileImage(String tileImage) {
+        this.tileImage = tileImage;
     }
 }
