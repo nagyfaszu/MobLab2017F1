@@ -8,8 +8,10 @@ import moblab.bme.sipka.bence.mobillabor2017f1.ui.UIModule;
 import moblab.bme.sipka.bence.mobillabor2017f1.ui.about.AboutActivity;
 import moblab.bme.sipka.bence.mobillabor2017f1.ui.main.MainActivity;
 import moblab.bme.sipka.bence.mobillabor2017f1.ui.main.MainInteractor;
+import moblab.bme.sipka.bence.mobillabor2017f1.ui.main.MainPresenter;
 import moblab.bme.sipka.bence.mobillabor2017f1.ui.recipe.RecipeActivity;
 import moblab.bme.sipka.bence.mobillabor2017f1.ui.recipe.RecipeInteractor;
+import moblab.bme.sipka.bence.mobillabor2017f1.ui.recipe.RecipePresenter;
 
 @Singleton
 @Component(modules = {UIModule.class, RepositoryModule.class, InteractorModule.class})
@@ -25,4 +27,8 @@ public interface MobSoftApplicationComponent {
     void inject(MainInteractor interactor);
 
     void inject(RecipeInteractor interactor);
+
+    void inject(MainPresenter presenter);
+
+    void inject(RecipePresenter presenter);
 }
