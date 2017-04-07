@@ -2,6 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="moblab.bme.sipka.bence.mobillabor2017f1">
 
+    <meta-data
+        android:name="DATABASE"
+        android:value="mobsoftlab.db"/>
+    <meta-data
+        android:name="VERSION"
+        android:value="1"/>
+    <meta-data
+        android:name="QUERY_LOG"
+        android:value="true"/>
+    <meta-data
+        android:name="DOMAIN_PACKAGE_NAME"
+        android:value="moblab.bme.sipka.bence.mobillabor2017f1.model"/>
+
     <application
         android:name=".MobSoftApplication"
         android:allowBackup="true"
