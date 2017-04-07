@@ -15,4 +15,6 @@ public abstract class Presenter<S> {
     public void detachScreen() {
         this.screen = null;
     }
+
+    public abstract void showMessage(String message);
 }

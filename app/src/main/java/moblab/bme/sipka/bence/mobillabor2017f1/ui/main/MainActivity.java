@@ -54,4 +54,9 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
         intent.putExtra(RecipeActivity.EXTRA_RECIPE_ID, recipe.id);
         startActivity(intent);
     }
+
+    @Override
+    public void showMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
 }

@@ -3,14 +3,15 @@ package moblab.bme.sipka.bence.mobillabor2017f1;
 import javax.inject.Singleton;
 
 import dagger.Component;
+import moblab.bme.sipka.bence.mobillabor2017f1.interactor.InteractorModule;
 import moblab.bme.sipka.bence.mobillabor2017f1.repository.RepositoryModule;
 import moblab.bme.sipka.bence.mobillabor2017f1.ui.UIModule;
 import moblab.bme.sipka.bence.mobillabor2017f1.ui.about.AboutActivity;
 import moblab.bme.sipka.bence.mobillabor2017f1.ui.main.MainActivity;
-import moblab.bme.sipka.bence.mobillabor2017f1.ui.main.MainInteractor;
+import moblab.bme.sipka.bence.mobillabor2017f1.interactor.main.MainInteractor;
 import moblab.bme.sipka.bence.mobillabor2017f1.ui.main.MainPresenter;
 import moblab.bme.sipka.bence.mobillabor2017f1.ui.recipe.RecipeActivity;
-import moblab.bme.sipka.bence.mobillabor2017f1.ui.recipe.RecipeInteractor;
+import moblab.bme.sipka.bence.mobillabor2017f1.interactor.recipe.RecipeInteractor;
 import moblab.bme.sipka.bence.mobillabor2017f1.ui.recipe.RecipePresenter;
 
 @Singleton

@@ -13,4 +13,6 @@ public interface MainScreen {
     public void showRecipeGroups(List<RecipeGroup> groups);
 
     public void showRecipe(RecipeHeader recipe);
+
+    public void showMessage(String message);
 }

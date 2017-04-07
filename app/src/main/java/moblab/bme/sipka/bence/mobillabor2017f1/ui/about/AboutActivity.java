@@ -9,7 +9,7 @@ import moblab.bme.sipka.bence.mobillabor2017f1.MobSoftApplication;
 import moblab.bme.sipka.bence.mobillabor2017f1.R;
 import moblab.bme.sipka.bence.mobillabor2017f1.ui.main.MainPresenter;
 
-public class AboutActivity extends AppCompatActivity implements AboutScreen{
+public class AboutActivity extends AppCompatActivity implements AboutScreen {
 
     @Inject
     AboutPresenter presenter;

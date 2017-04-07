@@ -2,6 +2,7 @@ package moblab.bme.sipka.bence.mobillabor2017f1.ui.recipe;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import javax.inject.Inject;
 
@@ -47,7 +48,12 @@ public class RecipeActivity extends AppCompatActivity implements RecipeScreen {
     }
 
     @Override
-    public void setFavorite(boolean favorite) {
+    public void showFavorite(boolean favorite) {
         //TODO
+    }
+
+    @Override
+    public void showMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 }

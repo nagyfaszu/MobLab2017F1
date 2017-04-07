@@ -9,14 +9,14 @@ import moblab.bme.sipka.bence.mobillabor2017f1.interactor.recipe.RecipeInteracto
 public class InteractorModule {
 
 
-	@Provides
-	public RecipeInteractor provideRecipes() {
-		return new RecipeInteractor();
-	}
+    @Provides
+    public RecipeInteractor provideRecipes() {
+        return new RecipeInteractor();
+    }
 
 
-	@Provides
-	public MainInteractor provideMain() {
-		return new MainInteractor();
-	}
+    @Provides
+    public MainInteractor provideMain() {
+        return new MainInteractor();
+    }
 }

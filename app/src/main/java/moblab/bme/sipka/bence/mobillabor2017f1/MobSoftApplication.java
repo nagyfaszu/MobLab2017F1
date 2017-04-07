@@ -9,19 +9,19 @@ import moblab.bme.sipka.bence.mobillabor2017f1.ui.UIModule;
 
 public class MobSoftApplication extends Application {
 
-	public static MobSoftApplicationComponent injector;
+    public static MobSoftApplicationComponent injector;
 
-	@Inject
-	Repository repository;
+    @Inject
+    Repository repository;
 
-	@Override
-	public void onCreate() {
-		super.onCreate();
+    @Override
+    public void onCreate() {
+        super.onCreate();
 
-		injector = DaggerMobSoftApplicationComponent.builder().
-						uIModule(new UIModule(this)).build();
+        injector = DaggerMobSoftApplicationComponent.builder().
+                uIModule(new UIModule(this)).build();
 
-		injector.inject(this);
-		repository.open(getApplicationContext());
-	}
+        injector.inject(this);
+        repository.open(getApplicationContext());
+    }
 }
