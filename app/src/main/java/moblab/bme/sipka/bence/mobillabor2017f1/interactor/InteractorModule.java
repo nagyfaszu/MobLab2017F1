@@ -1,9 +1,9 @@
-package moblab.bme.sipka.bence.mobillabor2017f1;
+package moblab.bme.sipka.bence.mobillabor2017f1.interactor;
 
 import dagger.Module;
 import dagger.Provides;
-import moblab.bme.sipka.bence.mobillabor2017f1.ui.main.MainInteractor;
-import moblab.bme.sipka.bence.mobillabor2017f1.ui.recipe.RecipeInteractor;
+import moblab.bme.sipka.bence.mobillabor2017f1.interactor.main.MainInteractor;
+import moblab.bme.sipka.bence.mobillabor2017f1.interactor.recipe.RecipeInteractor;
 
 @Module
 public class InteractorModule {

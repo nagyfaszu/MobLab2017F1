@@ -1,10 +1,11 @@
-package moblab.bme.sipka.bence.mobillabor2017f1.ui.main;
+package moblab.bme.sipka.bence.mobillabor2017f1.interactor.main;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
+import de.greenrobot.event.EventBus;
 import moblab.bme.sipka.bence.mobillabor2017f1.MobSoftApplication;
 import moblab.bme.sipka.bence.mobillabor2017f1.model.RecipeGroup;
 import moblab.bme.sipka.bence.mobillabor2017f1.repository.Repository;
@@ -17,6 +18,9 @@ public class MainInteractor {
 
     @Inject
     Repository repository;
+
+    @Inject
+    EventBus bus;
 
     public MainInteractor() {
         MobSoftApplication.injector.inject(this);
