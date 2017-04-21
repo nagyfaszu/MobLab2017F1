@@ -10,6 +10,7 @@ import org.robolectric.annotation.Config;
 import java.util.List;
 
 import moblab.bme.sipka.bence.mobillabor2017f1.BuildConfig;
+import moblab.bme.sipka.bence.mobillabor2017f1.model.RecipeGroup;
 import moblab.bme.sipka.bence.mobillabor2017f1.ui.main.MainPresenter;
 import moblab.bme.sipka.bence.mobillabor2017f1.ui.main.MainScreen;
 import moblab.bme.sipka.bence.mobillabor2017f1.utils.RobolectricDaggerTestRunner;
@@ -33,17 +34,17 @@ public class RecipeTest {
     }
 
     @Test
-    public void testTodo() {
+    public void testRecipeGroups() {
         MainScreen mainScreen = mock(MainScreen.class);
         mainPresenter.attachScreen(mainScreen);
         mainPresenter.getRecipeGroups();
 
         ArgumentCaptor<List> groupsCaptor = ArgumentCaptor.forClass(List.class);
-        verify(mainScreen, times(2)).showRecipeGroups(groupsCaptor.capture());
+        verify(mainScreen, times(1)).showRecipeGroups(groupsCaptor.capture());
 
-        List<List> capturedTodos = groupsCaptor.getAllValues();
-        assertEquals("todo one", capturedTodos.get(0));
-        assertEquals("todo two", capturedTodos.get(1));
+        List<RecipeGroup> capturedTodos = groupsCaptor.getValue();
+        assertEquals("1", capturedTodos.get(0).getId());
+        assertEquals("2", capturedTodos.get(1).getId());
     }
 
     @After

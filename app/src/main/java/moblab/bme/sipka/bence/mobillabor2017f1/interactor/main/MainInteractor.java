@@ -9,6 +9,8 @@ import de.greenrobot.event.EventBus;
 import moblab.bme.sipka.bence.mobillabor2017f1.MobSoftApplication;
 import moblab.bme.sipka.bence.mobillabor2017f1.interactor.GetRecipeGroupsEvent;
 import moblab.bme.sipka.bence.mobillabor2017f1.model.RecipeGroup;
+import moblab.bme.sipka.bence.mobillabor2017f1.network.NetworkModule;
+import moblab.bme.sipka.bence.mobillabor2017f1.network.recipe.RecipeApi;
 import moblab.bme.sipka.bence.mobillabor2017f1.repository.Repository;
 
 /**
@@ -21,6 +23,9 @@ public class MainInteractor {
     Repository repository;
 
     @Inject
+    RecipeApi networkApi;
+
+    @Inject
     EventBus bus;
 
     public MainInteractor() {
@@ -31,6 +36,7 @@ public class MainInteractor {
         GetRecipeGroupsEvent event = new GetRecipeGroupsEvent();
         try {
             List<RecipeGroup> result = new ArrayList<>();
+            result = networkApi.recipesGroupsGet().execute().body();
             //TODO query group ids from server
             //TODO look up values in repository
             //TODO query non cached groups
