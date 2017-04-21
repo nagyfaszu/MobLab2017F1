@@ -5,11 +5,11 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import com.google.gson.annotations.SerializedName;
-
-
+import com.orm.dsl.Table;
 
 
 @ApiModel(description = "")
+@Table
 public class RecipeHeader   {
   
   @SerializedName("Id")
