@@ -42,12 +42,12 @@ public class RecipeTest {
 
     @Test
     public void testRecipeGroups() {
-        RecipeScreen mainScreen = mock(RecipeScreen.class);
-        presenter.attachScreen(mainScreen);
+        RecipeScreen screen = mock(RecipeScreen.class);
+        presenter.attachScreen(screen);
         presenter.getRecipe("11");
 
         ArgumentCaptor<Recipe> groupsCaptor = ArgumentCaptor.forClass(Recipe.class);
-        verify(mainScreen, times(1)).showRecipe(groupsCaptor.capture());
+        verify(screen, times(1)).showRecipe(groupsCaptor.capture());
 
         Recipe recipe = groupsCaptor.getValue();
         assertEquals("11", recipe.getId());

@@ -2,6 +2,9 @@ package moblab.bme.sipka.bence.mobillabor2017f1.ui.recipe;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import javax.inject.Inject;
@@ -17,14 +20,28 @@ public class RecipeActivity extends AppCompatActivity implements RecipeScreen {
     @Inject
     RecipePresenter presenter;
 
-    private int recipeId;
+    private String recipeId;
+    private Recipe recipe;
+
+    TextView name;
+    ImageView image;
+    LinearLayout ingredients;
+    TextView directions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe);
 
-        recipeId = getIntent().getIntExtra(EXTRA_RECIPE_ID, -1);
+
+        name = (TextView) findViewById(R.id.recipe_name_text);
+        image = (ImageView) findViewById(R.id.recipe_image);
+        ingredients = (LinearLayout) findViewById(R.id.recipe_ingredients_linear);
+        directions = (TextView) findViewById(R.id.recipe_directions_text);
+
+        recipeId = getIntent().getStringExtra(EXTRA_RECIPE_ID);
+
+        presenter.getRecipe(recipeId);
 
         MobSoftApplication.injector.inject(this);
     }
@@ -44,6 +61,10 @@ public class RecipeActivity extends AppCompatActivity implements RecipeScreen {
     @Override
     public void showRecipe(Recipe recipe) {
         //TODO
+        this.recipe = recipe;
+        name.setText(recipe.getTitle());
+        directions.setText(recipe.getDirections());
+        showFavorite(recipe.getFavorite());
     }
 
     @Override
