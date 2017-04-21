@@ -2,7 +2,6 @@ package moblab.bme.sipka.bence.mobillabor2017f1.repository;
 
 import android.content.Context;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import moblab.bme.sipka.bence.mobillabor2017f1.model.Recipe;
@@ -38,7 +37,7 @@ public class MemoryRepository implements Repository {
     }
 
     @Override
-    public Recipe getRecipe(Long id) {
+    public Recipe getRecipe(String id) {
         for (int i = 0; i < recipes.size(); i++) {
             Recipe r = recipes.get(i);
             if (r.getId().equals(id)) {
@@ -49,7 +48,7 @@ public class MemoryRepository implements Repository {
     }
 
     @Override
-    public RecipeGroup getRecipeGroup(Long id) {
+    public RecipeGroup getRecipeGroup(String id) {
         for (int i = 0; i < recipeGroups.size(); i++) {
             RecipeGroup r = recipeGroups.get(i);
             if (r.getId().equals(id)) {
@@ -57,6 +56,11 @@ public class MemoryRepository implements Repository {
             }
         }
         return null;
+    }
+
+    @Override
+    public List<RecipeGroup> getRecipeGroups() {
+        return recipeGroups;
     }
 
     @Override

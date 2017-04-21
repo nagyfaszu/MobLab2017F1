@@ -9,9 +9,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import moblab.bme.sipka.bence.mobillabor2017f1.DaggerMobSoftApplicationComponent;
 import moblab.bme.sipka.bence.mobillabor2017f1.MobSoftApplication;
-import moblab.bme.sipka.bence.mobillabor2017f1.MobSoftApplicationComponent;
 import moblab.bme.sipka.bence.mobillabor2017f1.R;
 import moblab.bme.sipka.bence.mobillabor2017f1.model.RecipeGroup;
 import moblab.bme.sipka.bence.mobillabor2017f1.model.RecipeHeader;
@@ -51,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
     @Override
     public void showRecipe(RecipeHeader recipe) {
         Intent intent = new Intent(this, RecipeActivity.class);
-        intent.putExtra(RecipeActivity.EXTRA_RECIPE_ID, recipe.id);
+        intent.putExtra(RecipeActivity.EXTRA_RECIPE_ID, recipe.getId());
         startActivity(intent);
     }
 

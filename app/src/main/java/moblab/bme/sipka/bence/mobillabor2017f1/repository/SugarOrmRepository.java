@@ -5,6 +5,8 @@ import android.content.Context;
 import com.orm.SugarContext;
 import com.orm.SugarRecord;
 
+import java.util.List;
+
 import moblab.bme.sipka.bence.mobillabor2017f1.model.Recipe;
 import moblab.bme.sipka.bence.mobillabor2017f1.model.RecipeGroup;
 
@@ -26,13 +28,18 @@ public class SugarOrmRepository implements Repository {
     }
 
     @Override
-    public Recipe getRecipe(Long id) {
-        return SugarRecord.findById(Recipe.class, id);
+    public Recipe getRecipe(String id) {
+        return SugarRecord.findById(Recipe.class, new String[]{id}).get(0);
     }
 
     @Override
-    public RecipeGroup getRecipeGroup(Long id) {
-        return SugarRecord.findById(RecipeGroup.class, id);
+    public RecipeGroup getRecipeGroup(String id) {
+        return SugarRecord.findById(RecipeGroup.class, new String[]{id}).get(0);
+    }
+
+    @Override
+    public List<RecipeGroup> getRecipeGroups() {
+        return SugarRecord.listAll(RecipeGroup.class);
     }
 
     @Override

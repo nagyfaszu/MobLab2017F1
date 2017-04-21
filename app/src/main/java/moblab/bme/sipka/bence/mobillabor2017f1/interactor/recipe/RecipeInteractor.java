@@ -1,17 +1,12 @@
 package moblab.bme.sipka.bence.mobillabor2017f1.interactor.recipe;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.inject.Inject;
 
 import de.greenrobot.event.EventBus;
 import moblab.bme.sipka.bence.mobillabor2017f1.MobSoftApplication;
 import moblab.bme.sipka.bence.mobillabor2017f1.interactor.FavoriteSetEvent;
 import moblab.bme.sipka.bence.mobillabor2017f1.interactor.GetRecipeEvent;
-import moblab.bme.sipka.bence.mobillabor2017f1.interactor.GetRecipeGroupsEvent;
 import moblab.bme.sipka.bence.mobillabor2017f1.model.Recipe;
-import moblab.bme.sipka.bence.mobillabor2017f1.model.RecipeGroup;
 import moblab.bme.sipka.bence.mobillabor2017f1.repository.Repository;
 
 /**
@@ -30,7 +25,7 @@ public class RecipeInteractor {
         MobSoftApplication.injector.inject(this);
     }
 
-    public void getRecipe(Long id) {
+    public void getRecipe(String id) {
         GetRecipeEvent event = new GetRecipeEvent();
         try {
             Recipe recipe = repository.getRecipe(id);

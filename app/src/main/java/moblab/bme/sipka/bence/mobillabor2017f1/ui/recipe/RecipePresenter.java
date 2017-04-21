@@ -62,7 +62,7 @@ public class RecipePresenter extends Presenter<RecipeScreen> {
         screen.showMessage(message);
     }
 
-    public void getRecipe(final Long id) {
+    public void getRecipe(final String id) {
         executor.execute(new Runnable() {
             @Override
             public void run() {

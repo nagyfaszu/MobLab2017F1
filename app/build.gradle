@@ -7,7 +7,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "moblab.bme.sipka.bence.mobillabor2017f1"
-        minSdkVersion 15
+        minSdkVersion 19
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -45,6 +45,10 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.0.1'
     compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
     compile 'com.google.code.gson:gson:2.4'
+
+    compile "com.google.code.gson:gson:2.4"
+    compile "io.swagger:swagger-annotations:1.5.0"
+    compile "org.apache.oltu.oauth2:org.apache.oltu.oauth2.client:1.0.0"
 
     //JVM Test
     //JUnit

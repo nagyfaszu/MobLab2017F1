@@ -1,7 +1,5 @@
 package moblab.bme.sipka.bence.mobillabor2017f1.interactor;
 
-import java.util.List;
-
 import moblab.bme.sipka.bence.mobillabor2017f1.model.Recipe;
 
 /**

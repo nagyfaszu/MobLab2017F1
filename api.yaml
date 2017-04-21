@@ -18,6 +18,8 @@ paths:
     get:
       summary: Get recipe groups
       description: List of recipe groups
+      tags:
+        - Recipe
       responses:
         '200':
           description: OK
@@ -29,6 +31,8 @@ paths:
     get:
       summary: Get recipe
       description: Recipe
+      tags:
+        - Recipe
       parameters:
         - name: id
           in: path
@@ -44,6 +48,8 @@ paths:
     post:
       summary: Favorite recipe
       description: Favorites a recipe with Id
+      tags:
+        - Recipe
       parameters:
         - name: id
           in: path
@@ -59,6 +65,8 @@ paths:
     post:
       summary: Unfavorite recipe
       description: Unfavorites a recipe with Id
+      tags:
+        - Recipe
       parameters:
         - name: id
           in: path

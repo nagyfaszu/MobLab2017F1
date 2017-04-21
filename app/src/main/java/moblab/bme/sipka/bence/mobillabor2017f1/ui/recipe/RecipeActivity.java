@@ -9,7 +9,6 @@ import javax.inject.Inject;
 import moblab.bme.sipka.bence.mobillabor2017f1.MobSoftApplication;
 import moblab.bme.sipka.bence.mobillabor2017f1.R;
 import moblab.bme.sipka.bence.mobillabor2017f1.model.Recipe;
-import moblab.bme.sipka.bence.mobillabor2017f1.ui.main.MainPresenter;
 
 public class RecipeActivity extends AppCompatActivity implements RecipeScreen {
 

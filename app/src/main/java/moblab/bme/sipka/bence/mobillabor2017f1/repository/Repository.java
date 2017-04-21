@@ -15,9 +15,11 @@ public interface Repository {
 
     void saveRecipe(Recipe recipe);
 
-    Recipe getRecipe(Long id);
+    Recipe getRecipe(String id);
 
-    RecipeGroup getRecipeGroup(Long id);
+    RecipeGroup getRecipeGroup(String id);
+
+    List<RecipeGroup> getRecipeGroups();
 
     void saveRecipeGroup(RecipeGroup group);
 
