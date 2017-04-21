@@ -23,9 +23,9 @@ public class MemoryRepository implements Repository {
         RecipeHeader r11h=new RecipeHeader();
         r11h.setId("11");
         RecipeHeader r12h=new RecipeHeader();
-        r11h.setId("12");
+        r12h.setId("12");
         RecipeHeader  r21h=new RecipeHeader();
-        r11h.setId("21");
+        r21h.setId("21");
 
         Recipe r11=new Recipe();
         r11.setId(r11h.getId());
