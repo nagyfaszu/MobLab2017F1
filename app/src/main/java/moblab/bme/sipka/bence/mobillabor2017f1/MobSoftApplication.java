@@ -24,4 +24,10 @@ public class MobSoftApplication extends Application {
         injector.inject(this);
         repository.open(getApplicationContext());
     }
+
+    public void setInjector(MobSoftApplicationComponent appComponent) {
+        injector = appComponent;
+        injector.inject(this);
+        repository.open(getApplicationContext());
+    }
 }
