@@ -1,0 +1,123 @@
+swagger: '2.0'
+info:
+  description: UKKCKL Cookbook for BME Mobil Laboratory
+  version: 1.0.0
+  title: Cookbook
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    email: sipkabe@gmail.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+host: example.com
+schemes:
+  - http
+  - https
+paths:
+  /Recipes/Groups:
+    get:
+      summary: Get recipe groups
+      description: List of recipe groups
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RecipeGroup'
+  '/Recipes/{id}':
+    get:
+      summary: Get recipe
+      description: Recipe
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: recipe id
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Recipe'
+  '/Favorite/{id}':
+    post:
+      summary: Favorite recipe
+      description: Favorites a recipe with Id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: recipe id
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/RecipeResult'
+  '/Unfavorite/{id}':
+    post:
+      summary: Unfavorite recipe
+      description: Unfavorites a recipe with Id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: recipe id
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/RecipeResult'
+definitions:
+  RecipeResult:
+    type: object
+    properties:
+      Id:
+        type: string
+  RecipeGroup:
+    type: object
+    properties:
+      Id:
+        type: string
+      Title:
+        type: string
+      Recipes:
+        type: array
+        items:
+          $ref: '#/definitions/RecipeHeader'
+  RecipeHeader:
+    type: object
+    properties:
+      Id:
+        type: string
+      Title:
+        type: string
+      BackgroundImage:
+        type: string
+      TileImage:
+        type: string
+  Recipe:
+    type: object
+    properties:
+      Id:
+        type: string
+      Title:
+        type: string
+      BackgroundImage:
+        type: string
+      TileImage:
+        type: string
+      Ingredients:
+        type: array
+        items:
+          type: string
+      Directions:
+        type: string
+      ExtraImages:
+        type: array
+        items:
+          type: string
+      Favorite:
+        type: boolean
