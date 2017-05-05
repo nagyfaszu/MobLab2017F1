@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "838328166914",
+    "project_id": "android-mobsoft"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:838328166914:android:7c0f325b8e4fe1c5",
+        "android_client_info": {
+          "package_name": "moblab.bme.sipka.bence.mobillabor2017f1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0PldsUvP_STpZ4cpXdd4mlODI9WGDqtA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-98622772-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

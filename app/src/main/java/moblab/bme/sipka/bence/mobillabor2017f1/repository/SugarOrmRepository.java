@@ -29,12 +29,20 @@ public class SugarOrmRepository implements Repository {
 
     @Override
     public Recipe getRecipe(String id) {
-        return SugarRecord.findById(Recipe.class, new String[]{id}).get(0);
+        try {
+            return SugarRecord.findById(Recipe.class, new String[]{id}).get(0);
+        }catch(Exception e){
+            return null;
+        }
     }
 
     @Override
     public RecipeGroup getRecipeGroup(String id) {
-        return SugarRecord.findById(RecipeGroup.class, new String[]{id}).get(0);
+        try {
+            return SugarRecord.findById(RecipeGroup.class, new String[]{id}).get(0);
+        }catch(Exception e){
+            return null;
+        }
     }
 
     @Override

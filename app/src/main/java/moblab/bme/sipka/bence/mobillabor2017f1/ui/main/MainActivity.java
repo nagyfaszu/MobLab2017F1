@@ -1,12 +1,16 @@
 package moblab.bme.sipka.bence.mobillabor2017f1.ui.main;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -14,6 +18,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
+import java.io.InputStream;
+import java.net.URL;
 import java.util.Collections;
 import java.util.List;
 
@@ -24,6 +34,7 @@ import moblab.bme.sipka.bence.mobillabor2017f1.R;
 import moblab.bme.sipka.bence.mobillabor2017f1.model.Recipe;
 import moblab.bme.sipka.bence.mobillabor2017f1.model.RecipeGroup;
 import moblab.bme.sipka.bence.mobillabor2017f1.model.RecipeHeader;
+import moblab.bme.sipka.bence.mobillabor2017f1.ui.about.AboutActivity;
 import moblab.bme.sipka.bence.mobillabor2017f1.ui.recipe.RecipeActivity;
 
 public class MainActivity extends AppCompatActivity implements MainScreen {
@@ -65,10 +76,10 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
             }
             RecipeGroup g = getItem(position);
             LinearLayout itemslayout = (LinearLayout) convertView.findViewById(R.id.recipe_groups_items_linear);
-            TextView groupname = (TextView) itemslayout.findViewById(R.id.list_item_group_name);
+            TextView groupname = (TextView) convertView.findViewById(R.id.list_item_group_name);
             groupname.setText(g.getTitle());
             for(int i = 0; i < g.getRecipes().size(); ++i){
-                RecipeHeader r = g.getRecipes().get(i);
+                final RecipeHeader r = g.getRecipes().get(i);
                 View subitem ;
                 if(i < itemslayout.getChildCount()){
                     subitem =itemslayout.getChildAt(i);
@@ -79,6 +90,17 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
                 TextView name = (TextView) subitem.findViewById(R.id.subitem_recipe_header_name);
                 ImageView image = (ImageView) subitem.findViewById(R.id.subitem_recipe_header_image);
                 name.setText(r.getTitle());
+
+                if(r.getTileImage()!=null) {
+                    Glide.with(MainActivity.this).load(r.getTileImage()).into(image);
+                }
+
+                subitem.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        presenter.showRecipe(r);
+                    }
+                });
             }
 
             return convertView;
@@ -88,18 +110,28 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        MobSoftApplication application = (MobSoftApplication) getApplication();
+
+        Tracker tracker = application.getDefaultTracker();
+        tracker.setScreenName("MainActivity");
+        tracker.send(new HitBuilders.ScreenViewBuilder().build());
+
         setContentView(R.layout.activity_main);
 
         list = (ListView) findViewById(R.id.main_list);
         list.setAdapter(adapter);
 
         MobSoftApplication.injector.inject(this);
+
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         presenter.attachScreen(this);
+
+        presenter.getRecipeGroups();
     }
 
     @Override
@@ -124,5 +156,20 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
     @Override
     public void showMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+
+    public void titleClick(View v){
+        Intent intent = new Intent(this, AboutActivity.class);
+        startActivity(intent);
+    }
+
+    public static Bitmap getDrawable(String url){
+        try{
+            InputStream is = new URL(url).openStream();
+            return BitmapFactory.decodeStream(is);
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 }

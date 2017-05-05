@@ -14,6 +14,7 @@
         android:textSize="@dimen/title_text_size"
         android:text="Cookbook"
         android:layout_width="match_parent"
+        android:onClick="titleClick"
         android:layout_height="wrap_content" />
     <ListView
         android:id="@+id/main_list"

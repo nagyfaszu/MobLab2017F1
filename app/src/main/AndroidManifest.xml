@@ -15,6 +15,11 @@
         android:name="DOMAIN_PACKAGE_NAME"
         android:value="moblab.bme.sipka.bence.mobillabor2017f1.model"/>
 
+
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
         android:name=".MobSoftApplication"
         android:allowBackup="true"
@@ -31,6 +36,9 @@
         </activity>
         <activity android:name=".ui.recipe.RecipeActivity" />
         <activity android:name=".ui.about.AboutActivity"></activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="679e2c83417cc84fa2acb88c8ebf5864cc2bf8f5" />
     </application>
 
 </manifest>
